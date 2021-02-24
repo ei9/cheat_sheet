@@ -1,12 +1,12 @@
-## My Vim cheat sheet for quick reference.
+# My Vim cheat sheet for quick reference.
 
 ### Commonly used command.
 ```
 <i>  # Enter edit mode to insert words
-<Esc># Go to normal mode.
+<Esc>  # Go to normal mode.
 :up <FILE NAME>  # save a file
 :saveas <FILE NAME>  # save as other file
-:q  # quit
+:q  # quit vim
 :w  # write content to file
 :wq  # write & exit vim
 ```
