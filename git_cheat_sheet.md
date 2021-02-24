@@ -4,7 +4,7 @@
 - Create a repository on [Github](https://github.com).
 - Clone the repository to my computer.
 ```
-git clone <https://github.com/account/repo.git
+git clone <https://github.com/account/repo.git>
 ```
 - Start coding...
 - Check out what you've done.
@@ -28,7 +28,7 @@ git commit -m "What you've done."
 git push
 ```
 
-### When you have a partner who work at mid night with a cup of coffee...
+### When you have a partner who worked at mid night with a cup of coffee...
 
 - Make sure you update the source code in the morning.
 ```
