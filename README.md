@@ -6,3 +6,4 @@
 - [Vim](vim_cheat_sheet.md)
 - [Compile a program](compiler_cheat_sheet.md)
 - [blink a led](c/blink/blink.c)
+- [8051 assembly](asm_8051/README.md)
