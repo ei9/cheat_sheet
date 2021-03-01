@@ -11,6 +11,11 @@
 :wq  # write & exit vim
 ```
 
+### Warrning!
+if you press \<CTRL\> + S to save files like normal GUI editor, then the terminal would stopped.
+In order to solve this problem. Press \<CTRL\> + Q.
+I found the solution on [StackOverflow](https://stackoverflow.com/a/32118022)
+
 ### To make my vim more easier to use. Below is my .vimrc file.
 
 ```
