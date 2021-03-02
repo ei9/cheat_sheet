@@ -1,31 +1,31 @@
 # Linux command cheat sheet.
 
-- pwd:
+- **pwd** :
 Print name of current/working directory
 
-- ls:
+- **ls** :
 List what there are in current directory
 
-- cd \<path\>:
+- **cd** \<*path*\> :
 Go to certain path.
 
-- ps:
+- **ps** :
 Shows what kind of shell you are using.
 
-- \<CTRL\> + Z:
+- *\<CTRL\> + Z* :
 Temporary stop program
 
-- jobs:
+- **jobs** :
 See how many program has been stopped.
 
-- fg:
+- **fg** :
 Resume stopped program.
 
-- \<CTRL\> + W:
+- *\<CTRL\> + W* :
 Delete last word of current typing command.
 
-- \<CTRL\> + U:
+- *\<CTRL\> + U* :
 Delete a line of text while typing.
 
-- \<CTRL\> + C:
+- *\<CTRL\> + C* :
 Kill a running program.
