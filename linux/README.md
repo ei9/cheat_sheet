@@ -16,7 +16,7 @@ Shows what kind of shell you are using.
 Temporary stop program
 
 - **jobs** :
-See how many program has been stopped.
+See how many program has been stopped. And each of them will have a task id.
 
 - **fg** :
 Resume stopped program.
@@ -29,3 +29,61 @@ Delete a line of text while typing.
 
 - *\<CTRL\> + C* :
 Kill a running program.
+
+- **kill -TERM %1** : Kill a job. Where %1 means task id is 1.
+
+- *\<up\>* and *\<down\>*: Can navigate between used commands in terminal.
+
+- **man** : User manual.
+- **apropos** : search the manual page names and descriptions.
+- **less** : Give you a better reading experance.
+
+### su/sudo: root
+
+Permission denied.
+
+```
+$ ls -l /lost+found
+
+```
+
+Using su requires root password.
+And -c means execute following command with root permission.
+```
+$ su -c 'ls -l /lost+found'
+```
+
+And some distro like Ubuntu locked root account. Means there is no root password. So you are gonna use sudo.
+
+```
+$ sudo ls -l /lost+found
+```
+
+### Open a root shell.
+
+```
+$ sudo -i  # This will run a new root shell.
+# ls -l /lost+found  # $ sign become #
+# exit  # exit root shell
+$
+```
+
+### Read a document
+
+```
+$ ls --help  # document is too long to fit into a page.
+$ ls --help | less  # now you can read it page by page.
+```
+
+### Manual
+
+section from (1) to (10)
+
+```
+$ man 5 passwd  # Read passwd manual section 5
+```
+
+Read all pages about certain topic.
+```
+$ man -a passwd  # Read all pages about passwd
+```
