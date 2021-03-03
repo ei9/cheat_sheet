@@ -7,6 +7,6 @@ This is my first verilog project. So there might be some bugs!
 
 ### Note
 
-* [Hardware](hardware/src/verilog/README.md)
-* [Machine Language](sample_program/assembly/README.md)
-* [Assembler](assembler/src/java/README.md)
+* [Hardware](hardware/src/verilog)
+* [Machine Language](sample_program/assembly)
+* [Assembler](assembler/src/java)
