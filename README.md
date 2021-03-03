@@ -9,3 +9,4 @@
 - [8051 assembly](asm_8051/README.md)
 - [Java](java/README.md)
 - [Linux](linux/README.md)
+- [nand2tetris Hack computer](hack/README.md)
