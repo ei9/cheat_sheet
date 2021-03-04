@@ -28,6 +28,6 @@ else:
             print("i不合法")
             break
 
-        result = round(T(t0, i), 4)  # 四捨五入到小數點第四位
+        result = T(t0, i)
         print("T(0) = %.2f, T(%d) = %.4f" % (t0, i, result))
 
