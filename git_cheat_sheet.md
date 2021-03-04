@@ -11,6 +11,10 @@ git clone <https://github.com/account/repo.git>
 ```
 git status
 ```
+- Check which lines of codes you've changed.
+```
+git diff
+```
 - Add file to check list one by one.
 ```
 git add *file1* *file2*
