@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-def T(t0, i):
+def T(t0, i):  # 定義一個函式
     if i == 0:
         return t0;
     return T(t0, i - 1) + i * 2.71828
