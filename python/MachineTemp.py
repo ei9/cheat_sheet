@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
 def T(t0, i):  # 定義一個函式
-    if i == 0:
+    if i == 0:            #遞回函式要有一個停止的條件
         return t0;
-    return T(t0, i - 1) + i * 2.71828
+    return T(t0, i - 1) + i * 2.71828 
 
-
-n = int(input("n: "))
+n = int(input())
 
 if n < 1 or n > 10:
     print("n值不合法")
