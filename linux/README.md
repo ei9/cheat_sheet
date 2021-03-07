@@ -86,3 +86,9 @@ $ zcat /usr/share/doc/info/README.gz | less
 You can press *\<CTRL\> + \<ALT\> + F**. To swip from each virtual control center.
 And one of it default is F7 will be your first login and GUI context.
 You can switch to F6, login and enjoy text-based command line terminal. And go to F7 to use GUI.
+
+
+### Install .deb via dpkg
+```
+dpkg -i app.deb
+```
