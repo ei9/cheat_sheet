@@ -38,3 +38,21 @@ git push
 ```
 git pull
 ```
+
+### Branch
+
+- Create new branch.
+```
+git branch <new_branch>
+```
+
+- Switch to other branch.
+```
+git checkout <other_branch>
+```
+
+- Merge branches
+```
+git checkout <main_branch>  # Switch to your main branch.
+git merge <dev_branch>      # Merge from development branch.
+```
