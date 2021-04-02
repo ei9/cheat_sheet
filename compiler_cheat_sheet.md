@@ -6,6 +6,13 @@ javac program.java  # this will generate program.class
 java program  # execute
 ```
 
+- java (termux)
+```
+ecj program.java
+dx --dex --output=program.dex program.class
+dalvikvm -cp program.dex program
+```
+
 - gcc
 ```
 gcc main.c -o main.o  # compile
