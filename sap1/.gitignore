@@ -1,0 +1,4 @@
+# verilog files
+src/*.o
+src/*.vcd
+src/*.out

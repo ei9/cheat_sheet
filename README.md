@@ -3,6 +3,7 @@
 > Some tips to make my life easier.
 
 ## Project
+- [SAP1](sap1)
 - [Nand2tetris](hack/README.md)
 
 ## Practice
