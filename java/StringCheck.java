@@ -10,6 +10,7 @@ public class StringCheck {
     public static void main(String args[]) {
         Scanner sc=new Scanner(System.in);
         String str = sc.nextLine();
+        sc.close();
         // 參考：
         // https://www.geeksforgeeks.org/how-to-remove-all-white-spaces-from-a-string-in-java/
         // 去掉多餘空白

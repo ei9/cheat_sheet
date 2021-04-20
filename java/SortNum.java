@@ -11,10 +11,13 @@ public class SortNum {
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        sc = new Scanner(sc.nextLine());
+        String str = sc.nextLine();
+        sc.close();
+        sc = new Scanner(str);
         while(sc.hasNext()) {
             arr.add(sc.nextInt());
         }
+        sc.close();
         // Collections.sort(arr);  // 小 -> 大
         Collections.sort(arr, Collections.reverseOrder());  // 大 -> 小
         for (int i : arr)
