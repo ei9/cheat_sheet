@@ -9,6 +9,7 @@
 
 ## Practice
 - [Blink led](c/blink/blink.c)
+- [RS232](c/rs232)
 - [8051 assembly](asm_8051/README.md)
 - [Java](java/README.md)
 - [Python](python/README.md)
