@@ -18,4 +18,28 @@ class Stack<E> {
         current = current.next;
         return n;
     }
+
+    public boolean isEmpty() {
+        return current == null;
+    }
+
+    @Override
+    public String toString() {
+        if (isEmpty())
+            return "[]";
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+
+        Node<E> tmp = current;
+        while (tmp.next != null) {
+            sb.append(tmp);
+            sb.append(", ");
+            tmp = tmp.next;
+        }
+        sb.append(tmp);
+        sb.append("]");
+
+        return sb.toString();
+    }
 }

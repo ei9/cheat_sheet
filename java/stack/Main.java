@@ -10,8 +10,7 @@ public class Main {
         stack.push(1);
         stack.push(5);
 
-        for (int i=0 ; i<5 ; i++)
-            System.out.println(stack.pop());
+        System.out.println(stack);
 
         Stack<String> s2 = new Stack<>();
         s2.push("Hello");
@@ -20,7 +19,7 @@ public class Main {
         s2.push("This is stack.");
         s2.push("Using relatively slow linked list.");
 
-        for (int i=0 ; i<5 ; i++)
+        while (!s2.isEmpty())
             System.out.println(s2.pop());
     }
 }
