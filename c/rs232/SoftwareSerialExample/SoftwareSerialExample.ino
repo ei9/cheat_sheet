@@ -25,16 +25,20 @@
  This example code is in the public domain.
 
  */
+#include <DHT.h>
 #include <SoftwareSerial.h>
 #include <Servo.h>
 
 #define SERVO_PIN 2
+#define DHT_PIN 3
+#define DHTTYPE DHT22
 
 SoftwareSerial mySerial(10, 11); // RX, TX
 String usbIn = "";
 String rs232In = "";
 
 Servo myServo;
+DHT dht(DHT_PIN, DHTTYPE);
 
 void setup() {
     // Open serial communications and wait for port to open:
@@ -43,6 +47,7 @@ void setup() {
         ; // wait for serial port to connect. Needed for native USB port only
     }
     Serial.println("This is usb serial.");
+    Serial.println("Feature:\n    servo [pos] : Set servo degree.\n    temperature : See current temperature.\n    humidity : See current humidity.");
     
     // set the data rate for the SoftwareSerial port
     mySerial.begin(115200);
@@ -50,8 +55,11 @@ void setup() {
         ; // wait for serial port to connect. Needed for native USB port only
     }
     mySerial.println("This is RS232 serial.");
-    
+    mySerial.println("Feature:\n    servo [pos] : Set servo degree.\n    temperature : See current temperature.\n    humidity : See current humidity.");
+
+    dht.begin();
     myServo.attach(SERVO_PIN);
+    myServo.write(0);
 }
 
 void loop() { // run over and over
@@ -88,6 +96,14 @@ void process_string(String str) {
         str.trim();
         int pos = str.toInt();
         set_servo(pos);
+    } else if (str.startsWith("temperature")) {
+        float temp = dht.readTemperature();
+        Serial.println(temp);
+        mySerial.println(temp);
+    } else if (str.startsWith("humidity")) {
+        float hum = dht.readHumidity();
+        Serial.println(hum);
+        mySerial.println(hum);
     }
 }
 
