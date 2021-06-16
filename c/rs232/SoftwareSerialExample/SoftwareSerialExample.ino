@@ -26,47 +26,71 @@
 
  */
 #include <SoftwareSerial.h>
+#include <Servo.h>
+
+#define SERVO_PIN 2
 
 SoftwareSerial mySerial(10, 11); // RX, TX
 String usbIn = "";
 String rs232In = "";
 
-void setup() {
-  // Open serial communications and wait for port to open:
-  Serial.begin(115200);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
-  Serial.println("Goodnight moon!");
+Servo myServo;
 
-  // set the data rate for the SoftwareSerial port
-  mySerial.begin(115200);
-  while (!mySerial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
-  mySerial.println("Hello, world?");
+void setup() {
+    // Open serial communications and wait for port to open:
+    Serial.begin(115200);
+    while (!Serial) {
+        ; // wait for serial port to connect. Needed for native USB port only
+    }
+    Serial.println("This is usb serial.");
+    
+    // set the data rate for the SoftwareSerial port
+    mySerial.begin(115200);
+    while (!mySerial) {
+        ; // wait for serial port to connect. Needed for native USB port only
+    }
+    mySerial.println("This is RS232 serial.");
+    
+    myServo.attach(SERVO_PIN);
 }
 
 void loop() { // run over and over
     // rs232 in.
-  if (mySerial.available()) {
-    char c = mySerial.read();
-    mySerial.write(c);
-    rs232In += c;
-    if (c == '\r') {  // 'enter' char
-      Serial.print(rs232In);
-      rs232In = "";
+    if (mySerial.available()) {
+        char c = mySerial.read();
+        mySerial.write(c);
+        rs232In += c;
+        if (c == '\r') {  // 'enter' char
+            Serial.print(rs232In);
+            process_string(rs232In);
+            rs232In = "";
+        }
     }
-  }
+    
+    // usb in.
+    if (Serial.available()) {
+        char c = Serial.read();
+        Serial.write(c);
+        usbIn += c;
+        if (c == '\r') {  // 'enter' char
+            mySerial.print(usbIn);
+            process_string(usbIn);
+            usbIn = "";
+        }
+    }
+}
 
-  // usb in.
-  if (Serial.available()) {
-    char c = Serial.read();
-    Serial.write(c);
-    usbIn += c;
-    if (c == '\r') {  // 'enter' char
-      mySerial.print(usbIn);
-      usbIn = "";
+void process_string(String str) {
+    str.trim();
+    str.toLowerCase();
+    if (str.startsWith("servo")) {
+        str = str.substring(5);
+        str.trim();
+        int pos = str.toInt();
+        set_servo(pos);
     }
-  }
+}
+
+void set_servo(int pos) {
+    myServo.write(pos);
 }
