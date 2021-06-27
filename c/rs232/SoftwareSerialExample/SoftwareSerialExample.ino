@@ -32,10 +32,13 @@
 #define SERVO_PIN 2
 #define DHT_PIN 3
 #define DHTTYPE DHT22
+#define RELAY_PIN 4
 
 SoftwareSerial mySerial(10, 11); // RX, TX
 String usbIn = "";
 String rs232In = "";
+
+String feature = "Feature:\n    servo [pos] : Set servo degree.\n    temperature : See current temperature.\n    humidity : See current humidity.\n    relay [on/off] : Set relay state.";
 
 Servo myServo;
 DHT dht(DHT_PIN, DHTTYPE);
@@ -47,7 +50,7 @@ void setup() {
         ; // wait for serial port to connect. Needed for native USB port only
     }
     Serial.println("This is usb serial.");
-    Serial.println("Feature:\n    servo [pos] : Set servo degree.\n    temperature : See current temperature.\n    humidity : See current humidity.");
+    Serial.println(feature);
     
     // set the data rate for the SoftwareSerial port
     mySerial.begin(115200);
@@ -55,11 +58,13 @@ void setup() {
         ; // wait for serial port to connect. Needed for native USB port only
     }
     mySerial.println("This is RS232 serial.");
-    mySerial.println("Feature:\n    servo [pos] : Set servo degree.\n    temperature : See current temperature.\n    humidity : See current humidity.");
+    mySerial.println(feature);
 
     dht.begin();
     myServo.attach(SERVO_PIN);
     myServo.write(0);
+
+    pinMode(RELAY_PIN, OUTPUT);
 }
 
 void loop() { // run over and over
@@ -104,6 +109,13 @@ void process_string(String str) {
         float hum = dht.readHumidity();
         Serial.println(hum);
         mySerial.println(hum);
+    } else if (str.startsWith("relay")) {
+        str = str.substring(5);
+        str.trim();
+        if (str == "on")
+            digitalWrite(RELAY_PIN, 0);
+        else if (str == "off")
+            digitalWrite(RELAY_PIN, 1);
     }
 }
 
